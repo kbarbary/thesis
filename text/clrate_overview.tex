@@ -1,0 +1,43 @@
+
+With the systematically selected SN sample from the previous chapter,
+we are now in a position to calculate SN rates. The cluster SN~Ia rate
+is given by
+\begin{equation}
+\label{eq:rate}
+\mathcal{R} = \frac{N_{\rm SN~Ia}}{\sum_j T_j L_j} ,
+\end{equation}
+where $N_{\rm SN~Ia}$ is the total number of SNe~Ia observed in
+clusters in the survey, and the denominator is the total effective
+time-luminosity for which the survey is sensitive to SNe~Ia in
+clusters. $L_j$ is the luminosity of cluster $j$ visible to the survey
+in a given band. $T_j$ is the ``effective visibility time'' (also
+known as the ``control time'') for cluster $j$. This is the effective
+time for which the survey is sensitive to detecting a SN~Ia,
+calculated by integrating the probability of detecting a SN~Ia as a
+function of time over the span of the survey. It depends on the
+redshift of the SN~Ia to be detected and the dates and depths of the
+survey observations. As each cluster has a different redshift and
+different observations, the control time is determined separately for
+each cluster.  To calculate a rate per stellar mass, $L_j$ is replaced
+by $M_j$.
+
+Equation~(\ref{eq:rate}) is for the case where the entire observed
+area for each cluster is observed uniformly, yielding a control time
+$T$ that applies to the entire area.  In practice, different areas of
+each cluster may have different observation dates and/or depths,
+resulting in a control time that varies with position. This is
+particularly true for this survey, due to the rotation of the observed
+field between visits and the gap between ACS chips. Therefore, we
+calculate the control time as a function of position in each observed
+field, $T_j(x,y)$. As the cluster luminosity is also a function of
+position, we weight the control time at each position by the
+luminosity at that position. In other words, we make the substitution
+\begin{equation} 
+\label{eq:ratedenom}
+T_j L_j \Rightarrow \int_{x,y} T_j (x,y) L_j (x,y). 
+\end{equation}
+
+In \S\ref{sec:clrate_candsummary} we summarize the findings of the
+previous chapter for $N_{\rm SN~Ia}$.  In \S\ref{sec:ct} we calculate
+$T_j (x,y)$, and in \S\ref{sec:lum} we calculate $L_j(x,y)$.
+

@@ -1,0 +1,82 @@
+The 86 remaining candidates still include a considerable number of
+non-SNe. We wish to trim the sample down as much as possible in an
+automated way, so that we can easily calculate the efficiency of our
+selection.  For each candidate, we now make three further automated
+requirements based on $i_{775}$ data (if available) and the shape of
+the $z_{850}$ light curve.  The requirements and number of candidates
+remaining after each requirement are summarized in
+Table~\ref{tab:lccuts}.
+
+%%%%%%%%%%%%%%%%%%%%
+% Light curve Cuts %
+%%%%%%%%%%%%%%%%%%%%
+\begin{table}[tbh]
+\caption{\label{tab:lccuts} Light curve requirements for candidates}
+\begin{center}
+\begin{footnotesizetabular}{lc}
+
+\hline
+\hline
+Requirement & Candidates Remaining \\
+\hline
+Before light curve requirements                   & 86\\
+Positive $i_{775}$ flux (if observed in $i_{775}$) & 81\\
+$2\sigma$ Detection in surrounding epochs         & 73\\
+If declining, Require two $5\sigma$ detections    & 60\\
+\hline
+
+\end{footnotesizetabular}
+\end{center}
+\end{table}
+
+First, we require that if $i_{775}$ data exists for the epoch in which
+the candidate was detected, there be positive flux in a 2~pixel radius
+aperture at the candidate location in the $i_{775}$ image. From our SN
+light curve simulations, we find that virtually all SNe should pass
+(near maximum light there is typically enough SN flux in the $i_{775}$
+filter to result in a positive total flux, even with large negative
+sky fluctuations).  Meanwhile, about half of the cosmic rays located
+far from galaxies will fail this test (due to negative sky
+fluctuations). If there is no $i_{775}$ data for the detection epoch,
+this requirement is not applied. Even though nearly all SNe are
+expected to pass, we account for any real SNe that would be removed in
+our Monte Carlo simulation.
+
+Second, we require that the light curve does not rise and fall too
+quickly: if there is a ``search'' visit less than 60~days before the
+detection visit and also one less than 60~days after the detection visit,
+the candidate must be detected at a $2\sigma$ level in at least one of
+these two visits. SNe~Ia have light curves wide enough to be detected
+at this level in two epochs spaced apart by 60~days. However, cosmic
+rays in one $z_{850}$ image are unlikely to be repeated in the same
+spot in two epochs and thus will be removed. This requirement is also
+included in our Monte Carlo simulation.
+
+%The third and final requirement eliminates SNe lacking
+%sufficient light curve information for typing. 
+%Because we cannot
+%obtain spectroscopic confirmation for all candidates, it is important
+%to have enough light curve information to be able the estimate a SN
+%type photometrically. 
+The third and final requirement aims to eliminate candidates that were
+significantly detected in only the first epoch and that then faded
+from view. Such candidates would not have been followed up
+spectroscopically and it would typically be impossible to tell if such
+candidates were SNe (and if so, Type~Ia or core collapse) on the basis
+of a single detection. We chose to eliminate any such candidates and
+account for this elimination in our Monte Carlo simulation, rather
+than dealing with an ``untypeable'' candidate.  Specifically, if a
+candidate is found on the decline (in the first search epoch), we
+require two epochs with $5\sigma$ detections.  For high-redshift
+($z \sim 1$) SNe~Ia, this requirement means that the first epoch will
+be at approximately maximum light, and most of the SN decline is
+captured, making it possible to confirm a SN and estimate a type.
+For candidates that are only significantly detected in the last search
+epoch, typing is not a problem because additional ACS orbits were
+typically scheduled in order to follow such candidates.
+
+After these requirements 60 candidates remain. The automatic selection
+means that we can easily calculate the completeness of the selection
+so far; any real SNe~Ia removed will be accounted for in the
+``effective visibility time'' which is calculated using a
+Monte Carlo simulation.

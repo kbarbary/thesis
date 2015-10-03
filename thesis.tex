@@ -1,0 +1,285 @@
+
+\documentclass[12pt]{ucthesis}
+
+%%%%%%%%%%%%%%%%%
+% some packages %
+%%%%%%%%%%%%%%%%%
+\usepackage{apjabbrev} % journal abbreviation definitions used by apj.bst
+\usepackage{amssymb}    
+\usepackage{graphicx}
+\usepackage{color}
+\usepackage{times}     % my preference: otherwise uses computer modern fonts
+\usepackage{natbib}
+\bibpunct{(}{)}{;}{a}{}{,}         % formatting for natbib package
+\usepackage[rightcaption]{sidecap} % defines the SCfigure environment
+
+%%%%%%%%%%%%%%%%%%%%
+% fancyhdr package %
+%%%%%%%%%%%%%%%%%%%%
+\usepackage{fancyhdr} 
+\pagestyle{fancy}
+
+% with this we ensure that the chapter and section headings are in lowercase.
+\renewcommand{\chaptermark}[1]{\markboth{#1}{}}
+\renewcommand{\sectionmark}[1]{\markright{\thesection\ #1}}
+\fancyhf{} % delete current setting for header and footer
+\fancyhead[LE,RO]{\bfseries\thepage}
+\fancyhead[LO]{\bfseries\rightmark}
+\fancyhead[RE]{\bfseries\leftmark}
+\renewcommand{\headrulewidth}{0.5pt}
+\renewcommand{\footrulewidth}{0pt}
+\addtolength{\headheight}{0.5pt} % make space for the rule
+\fancypagestyle{plain}{%
+\fancyhead[RO]{\bfseries\thepage}
+\fancyhead[LO]{} % get rid of headers on plain pages
+\addtolength{\headheight}{0.5pt}
+\renewcommand{\headrulewidth}{0pt} % and the line
+}
+
+%%%%%%%%%%%%%%%%%%%%
+% ccaption package %
+%%%%%%%%%%%%%%%%%%%%
+\usepackage{ccaption}
+\captionnamefont{\footnotesize\bfseries} % e.g., `Figure 1.1.'
+\captiontitlefont{\footnotesize}         % the caption itself
+\captiondelim{. }                      % e.g., `Figure 1.1. ' vs `Figure 1.1: ' 
+
+%%%%%%%%%%%%%%%%%%%%
+% hyperref package %
+%%%%%%%%%%%%%%%%%%%%
+\usepackage{hyperref}
+\urlstyle{same}
+\hypersetup{
+    pdftitle={PhD Thesis: High-Redshift Type Ia Supernova Rates},
+    pdfauthor={Kyle Harris Barbary},
+    colorlinks=true, % false = boxed links; true = colored links
+    linkcolor=black, % color of internal links
+    citecolor=black, % color of links to bibliography
+    urlcolor=black,  % color of external links
+    breaklinks=true  %allow breaking author names across lines to avoid line 
+                     %overflow
+}
+
+%%%%%%%%%%%
+%COMMANDS %
+%%%%%%%%%%%
+\def\ssp{\def\baselinestretch{1}\large\normalsize}\ssp %hack for single-spacing
+\def\nodata{\dots}
+\def\phn{\phantom{0}}
+\newcommand{\NOTE}[1]{{\color{red}[{\it #1}]}} %for notes in draft
+\hyphenation{MAG-AUTO}
+
+
+%%%%%%%%%%%%%%%%%%%
+%   Frontmatter   %
+%%%%%%%%%%%%%%%%%%%
+\begin{document}
+\title{High-Redshift Type Ia Supernova Rates in Galaxy 
+Cluster and Field Environments}
+\author{Kyle Harris Barbary}
+
+\degreeyear{2011}
+\degreesemester{Spring}
+\degree{Doctor of Philosophy}
+
+\numberofmembers{3}
+\numberofchairs{1}
+\chair{Professor Saul Perlmutter}
+\othermembers{Professor William Holzapfel\\
+  Professor Joshua Bloom}
+
+\field{Physics}
+\campus{Berkeley}
+
+\maketitle
+%\approvalpage
+\copyrightpage
+
+\begin{abstract}
+\ssp
+\input{text/abstract.tex}
+\end{abstract}
+
+\begin{frontmatter}
+
+\begin{dedication}
+\null\vfil
+{\large\raggedleft\it
+To,\\ \vspace{12pt}
+Mom and Dad,\\ \vspace{12pt}
+for always supporting me\\
+in whatever I wanted to do,\\
+even if it was going to grad school.\\
+}
+\vfil\null
+\end{dedication}
+
+\begin{acknowledgements}
+\input{text/acknowledgements.tex}
+\end{acknowledgements}
+
+\chapter*{Preface}
+\input{text/preface.tex}
+
+\tableofcontents
+\listoffigures
+\listoftables
+
+\end{frontmatter}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Chapter 1: Review                         %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Introduction: Type Ia Supernovae and Their Progenitors} 
+\label{sec:intro}
+\input{text/intro.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Chapter 2: HST Cluster SN Survey %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{The \emph{HST} Cluster Supernova Survey} \label{sec:survey}
+\input{text/survey.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%
+% Chapter 3: SCP06F6 %
+%%%%%%%%%%%%%%%%%%%%%%
+\chapter{The Unusual Supernova SN SCP06F6} \label{sec:scp06f6}
+\input{text/scp06f6.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Chapter 4: SN Candidate Selection and Typing %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Supernova Candidate Selection and Typing} \label{sec:cands}
+\input{text/cands.tex}
+
+\section{Automated Selection}
+
+\subsection{Initial Detection} \label{sec:cands_search}
+\input{text/cands_search.tex}
+
+\subsection{Lightcurve Requirements} \label{sec:cands_lccuts}
+\input{text/cands_lccuts.tex}
+
+\section{Type Determination} \label{sec:cands_typing}
+\input{text/cands_typing.tex}
+
+\subsection{Image Artifacts} \label{sec:cands_artifacts}
+\input{text/cands_artifacts.tex}
+
+\subsection{AGN} \label{sec:cands_agn}
+\input{text/cands_agn.tex}
+
+\subsection{Supernovae} \label{sec:cands_sn}
+\input{text/cands_sn.tex}
+
+\subsection{Comments on Individual SN Light Curves} 
+\label{sec:cands_sncomments}
+\input{text/cands_sncomments.tex}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Chapter 5: Cluster Rate Calculation      %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Cluster Rate} \label{sec:clrate}
+
+\section{Overview of Calculation} \label{sec:clrate_overview}
+\input{text/clrate_overview.tex}
+
+\section{Summary of Cluster SN Candidates} \label{sec:clrate_candsummary}
+\input{text/clrate_candsummary.tex}
+
+
+%%%%%%%%%%%%%%%%%%%%% Control Time %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Effective Visibility Time} \label{sec:ct}
+\input{text/ct.tex}
+
+\subsection{Detection Efficiency} \label{sec:ct_eff}
+\input{text/ct_eff.tex}
+
+\subsection{Simulated Lightcurves} \label{sec:ct_mc}
+\input{text/ct_mc.tex}
+
+\subsection{Effect of Varying SN Properties} \label{sec:ct_sys}
+\input{text/ct_sys.tex}
+
+
+%%%%%%%%%%%%%%%%%%%% Luminosities %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Cluster Luminosities and Masses} \label{sec:lum}
+\input{text/lum.tex}
+
+\subsection{Image Background Subtraction} \label{sec:lum_background}
+\input{text/lum_background.tex}
+
+\subsection{Galaxy Detection and Photometry} \label{sec:lum_photometry}
+\input{text/lum_photometry.tex}
+
+\subsection{Galaxy Detection Completeness and Magnitude Bias}
+\label{sec:lum_correction}
+\input{text/lum_correction.tex}
+
+\subsection{$K$-Corrections} \label{sec:lum_kcorr}
+\input{text/lum_kcorr.tex}
+
+\subsection{Luminosity Function Correction} \label{sec:lum_faintgals}
+\input{text/lum_faintgals.tex}
+
+\subsection{Determining Cluster Centers} \label{sec:lum_centers}
+\input{text/lum_centers.tex}
+
+\subsection{``Background'' Luminosity} \label{sec:lum_goods}
+\input{text/lum_goods.tex}
+
+\subsection{Cluster Luminosity Profiles} \label{sec:lum_profiles}
+\input{text/lum_profiles.tex}
+
+\subsection{Galaxy Subsets} \label{sec:lum_subsets}
+\input{text/lum_subsets.tex}
+
+\subsection{Stellar Mass-to-Light Ratio} \label{sec:lum_mass}
+\input{text/lum_mass.tex}
+
+
+%%%%%%%%%%%%%% Results & Discussion %%%%%%%%%%%%%%
+\section{Results and Systematic Uncertainty} \label{sec:clrate_results}
+\input{text/clrate_results.tex}
+
+\section{Discussion} \label{sec:clrate_discussion}
+\input{text/clrate_discussion.tex}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Chapter 6: Field Rate Calculation %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Field Rate} \label{sec:fieldrate}
+
+\section{Calculation Overview} \label{sec:fieldrate_overview}
+\input{text/fieldrate_overview.tex}
+
+\section{Field SN Candidates} \label{sec:fieldrate_cands}
+\input{text/fieldrate_cands.tex}
+
+\section{Effective Visibility Time} \label{sec:fieldrate_ct}
+\input{text/fieldrate_ct.tex}
+
+\section{Results} \label{sec:fieldrate_results}
+\input{text/fieldrate_results.tex}
+
+\section{Discussion} \label{sec:fieldrate_discussion}
+\input{text/fieldrate_discussion.tex}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Chapter 7: Conclusions %
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Conclusions} \label{sec:conclusions}
+\input{text/conclusions}
+
+
+%%%%%%%%%%%%%%%%
+% Bibliography %
+%%%%%%%%%%%%%%%%
+\bibliographystyle{apj}
+\bibliography{thesis}
+
+
+\end{document}

@@ -1,0 +1,31 @@
+#!/bin/sh
+
+name=thesis
+
+latex ${name}
+bibtex ${name}
+
+#shorten author lists in .bbl file:
+shorten.py ${name}.bbl
+mv ${name}.bbl.short ${name}.bbl
+
+latex ${name}
+latex ${name}
+
+dvips ${name}.dvi -Ppdf -tletter -o
+ps2pdf -dPDFX -dAutoRotatePages=/None ${name}.ps
+#PDFX makes it embed all fonts (otherwise the times family fonts are not)
+#AutoRotatePages=/None stops it from rotating pages according to the text
+
+rm -f ${name}.aux ${name}.blg ${name}.log ${name}.out 
+rm -f ${name}.toc ${name}.lot ${name}.lof 
+rm -f ${name}.dvi ${name}.ps
+
+echo ""
+echo "For your information, here are mentions of 'ArXiv', 'arXiv' and 'arxiv'"
+echo "in ${name}.bbl. You might want to check that they are up to date."
+echo ""
+grep ArXiv ${name}.bbl
+grep arXiv ${name}.bbl
+grep arxiv ${name}.bbl
+echo ""

@@ -1,0 +1,70 @@
+
+For galaxy detection and photometry we use the stacked $i_{775}$ and
+$z_{850}$ band images of each cluster, which have total exposure times
+in the range 1060 -- 4450~seconds and 5440 -- 16,935~seconds,
+respectively. 
+
+\subsubsection{Detection}
+
+Galaxy catalogs are created using the two-pass ``Cold/Hot'' method of
+running {\sc SExtractor} first developed by \citet{rix04a} and adapted
+to this survey in \citet{meyers11a}.  In the Cold/Hot method, {\sc
+SExtractor} is first run in dual-image mode using the $z_{850}$ image
+for detection. The detection thresholds are generally set fairly high
+(Table~\ref{tab:sextractor}) in order to detect only the brighter
+galaxies. The ``segmentation map'', which represents which pixels
+belong to a galaxy, is saved. {\sc SExtractor} is then run again (also
+in dual-image mode using the $z_{850}$ image for detection) but with
+more lenient detection parameters, in order to find the fainter
+galaxies. This second catalog is then cleaned by throwing out galaxies
+that fall on pixels belonging to galaxies in the first catalog. The
+cleaned second catalog is then combined with the first catalog.  We
+remove stars from the catalog based on the CLASS\_STAR and
+FLUX\_RADIUS parameters from the $z_{850}$ image.
+
+For consistency with \citet{meyers11a}, objects are detected using the
+stacked $z_{850}$ images prior to background subtraction. However,
+photometry for both $z_{850}$ and $z_{775}$ is done on the background
+subtracted images. Thus, for the photometry image in dual-image mode,
+the {\sc SExtractor} parameters BACK\_TYPE=MANUAL and BACK\_VALUE=0.0
+are used.
+
+\subsubsection{Photometry}
+
+It is notoriously difficult to determine accurate total fluxes for
+extended sources. MAGAUTO is generally thought to be {\sc
+SExtractor}'s most reliable estimator of total flux, but can still be
+wrong by a large amount depending on the galaxy.  MAG\_AUTO gives the
+total magnitude of an object inside a flexible elliptical aperture,
+with \emph{no aperture correction}. The size of the elliptical
+aperture is based on the Kron radius. Although it varies from the
+original definition, for the purposes of {\sc
+SExtractor} \citet{bertin96a} define the Kron radius as
+\begin{equation} \label{eq:kron}
+R_1 = \frac{\Sigma R I(R)}{\Sigma I(R)}
+\end{equation}
+over the two-dimensional aperture. The elliptical aperture used has a
+semi-minor axis length $KR_1$ where the user can chose the Kron factor
+$K$. Theoretically, an aperture with, for example, $K=2$ will enclose
+approximately 90\% of the light of a galaxy with a \citet{sersic68a}
+profile, nearly independent of its S{\'e}rsic index of the
+galaxy \citep{graham05a}.
+
+On real images with noise, things are more complicated. Because the
+outskirts of the galaxy are in the noise, {\sc SExtractor} will only
+assign pixels in the inner part of a galaxy to each galaxy, and only
+these pixels will be counted in determining $R_1$. As a result, $R_1$
+is underestimated. The amount by which it is underestimated depends on
+the S{\'e}rsic index of the galaxy and its surface brightness with
+respect to the background noise. As a result, the fraction of light
+that an actual MAG\_AUTO aperture encloses depends on the all above
+factors. In order to use MAG\_AUTO magnitudes as an accurate estimate
+of total light, we must find the aperture correction empirically for
+our data. We do this using the Monte Carlo simulation described below.
+
+In order to make the aperture correction as small as possible, we use
+a relatively large Kron factor of 5.0 in our MAG\_AUTO
+photometry. MAG\_AUTO is only used to determine $z_{850}$ magnitudes;
+$i_{775}-z_{850}$ colors are determined using PSF matching and a
+smaller aperture in \citet{meyers11a}.
+

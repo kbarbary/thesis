@@ -1,0 +1,112 @@
+
+If the real distributions of SN~Ia properties differs significantly
+from those assumed in our simulation, the $T(x,y)$ maps we have
+derived could misrepresent the true efficiency of the survey. Above we
+argued that the effect is likely to be small because the detection
+efficiency is close to 100\% for most of the survey. Here we quantify
+the size of the possible effect on the control time by varying the
+assumed distributions.
+
+To first order, changing the assumed distributions of $s$ or $c$ or
+changing the assumed spectral time series will affect the detection
+efficiency by increasing or decreasing the luminosity of the simulated
+SN. To jointly capture these effects, we shift the absolute magnitude
+of the simulated SNe~Ia by $^{+0.2}_{-0.2}$~mag and recalculate the
+control times. To first order, this is equivalent to shifting the $s$
+distribution by $\Delta s = 0.2/\alpha \sim 0.16$ or shifting the $c$
+distribution by $\Delta c = 0.2/\beta \sim 0.09$. A $-0.2$~mag shift
+in absolute magnitude increases the control time, decreasing the
+inferred SN~Ia rate by $6\%$. A $+0.2$~mag shift decreases the control
+time, increasing the SN~Ia rate by $8\%$. These effects are
+sub-dominant compared to the Poisson error of $\gtrsim 30\%$ in the
+number of SNe observed. (Sources of error are summarized
+in \S\ref{sec:clrate_results_sys} and Table~\ref{tab:clrate_sys}.)
+
+% EXPLANATION OF SPECTRAL TIME SERIES CHOICE
+%To generate the simulated light curves in the observed bands, we use
+%the \citet{hsiao07a} SN~Ia spectral time series template.
+%This template is known to have higher fidelity in the rest-frame UV
+%than, e.g., the {\sc salt}
+%\citep{guy05a} or \citet{nugent02a} templates. An accurate UV SN
+%template is particularly important here, as the observed $z_{850}$
+%band corresponds to rest-frame $U$-band at $z \sim 1.4$.  
+
+%EXPLANATION OF STRETCH DISTRIBUTION
+%We keep in mind that clusters are dominated
+%by passive galaxies, which preferentially host lower-stretch SNe: we
+%base our stretch distribution on the first-year Supernova Legacy
+%Survey (SNLS) sample of $z<0.75$ SNe in passive hosts \citet{sullivan06a}.
+
+%EXPLANATION OF COLOR DISTRIBUTION
+%For color, we follow a similar approach, but base
+%our distribution on the full first-year SNLS sample \citep{astier06a}
+%of $z<0.6$ SNe in all host types (the observed $c$ distribution is not
+%significantly different in early-type hosts). \citep[e.g.,][]{sullivan10a}
+%We have cut the sample at $z<0.6$ to minimize Malmquist bias against
+%redder SNe.  The $c$ distribution of these SNe is reproduced in the
+%left panel of Figure~\ref{fig:dists} (solid line).
+
+For the color distribution, in addition to a simple shift, we also
+quantify the effect of including a smaller or larger fraction of SNe
+significantly reddened by dust. In fact, we have good reasons to
+believe that most cluster SNe~Ia will be in dust-free environments. A
+large fraction of the stellar mass in the clusters ($\sim 80\%$) is
+contained in red-sequence galaxies expected to have little or no
+dust. Our spectroscopic and photometric analysis \citep{meyers11a} of
+the red-sequence galaxies confirms this expectation. Therefore, for
+our default $c$ distribution (Fig.~\ref{fig:dists}, right panel, solid
+line), we assumed that $20\%$ of SNe (those occurring in galaxies not
+on the red sequence) could be affected by dust, and that the
+extinction of these SNe would be distributed according to
+$P(A_V) \propto \exp(-A_V/0.33)$. This distribution is based on the
+inferred underlying $A_V$ distribution of the SDSS-II
+sample \citep[][hereafter K09]{kessler09a}. All SNe are assumed to
+have an intrinsic dispersion in color to match the observed SNLS
+distribution at $c<0.3$. It might be the case that even fewer SNe are
+affected by dust, or (unlikely) more SNe are affected by dust. As
+extreme examples, we tested two alternative distributions (dotted
+lines in Fig.~\ref{fig:dists}). In the first, we assumed that the SNLS
+sample was complete and characterized the full $c$ distribution, with
+a negligible number of $c>0.4$ SNe. This increases the control time by
+only $2\%$. In the second, we increase the fraction of dust-affected
+SNe from $20\%$ to $50\%$.  Even though this alternative distribution
+includes an additional $\sim$$30\%$ more reddened SNe (unlikely to be
+true in reality), the average control time is only lower by $9\%$
+(increasing the rate by $10\%$). We use these values as the systematic
+error in the assumed dust distribution.
+
+
+%The assumed distribution of SN color used in the Monte Carlo
+%simulation was based on the SNLS $z<0.6$ sample, which contained no
+%SNe redder than $c=0.3$. As a result, our assumed $c$ distribution has
+%only a very small number of SNe with $c>0.4$. There are two reasons
+%that we expect this to be a good representation of reality. First, the
+%SNLS sample is reasonably complete at $z<0.6$; if there were many
+%$c>0.4$ SNe in reality, some would be found at lower
+%redshifts. Note that the trend of no detected $c>0.4$ SNe continues
+%in the third-year SNLS sample \citep{sullivan10a}. Second, the stellar
+%mass in clusters is predominantly found in early-type galaxies which
+%are expected to have less dust than field galaxies. Of course, this
+%doesn't mean there are {\it no} high-extinction SNe~Ia in the clusters;
+%high-extinction SNe~Ia have been detected in other surveys, and clusters
+%do contain some dusty galaxies. However it does mean that there are
+%likely a negligible number of $c>0.4$ SNe~Ia occurring in the clusters.
+
+%Still, to test the effect of the existence of high-extinction SNe on
+%our control time, we replace our assumed $c$ distribution with one
+%including a number of redder SNe. We conservatively assumed that
+%$50\%$ of cluster SNe could be affected by dust, and that the
+%extinction of these SNe would be distributed according to
+%$P(A_V) \propto \exp(-A_V/0.33)$. This is the inferred underlying
+%$A_V$ distribution of the SDSS-II sample \citep{kessler09a}. We
+%convert this to a distribution in $c$ ($c = A_V/(\beta-1)$) and add
+%intrinsic SN color scatter to reach the distribution shown in
+%Fig.~\ref{fig:dists} (dotted line). This distribution roughly matches
+%our nominal one in the range $-0.2 < c < 0.3$, but includes an
+%additional $\sim$$40\%$ more reddened SNe. Using this alternate
+%distribution in our simulation, the average control time is lower by
+%$10.5\%$. (The effect is greater for higher-redshift clusters and
+%smaller for lower-redshift clusters, where SNe are more easily
+%detected.) Across all clusters, we would detect the majority of the
+%additional $40\%$ more-reddened SNe. Conservatively, we include a
+%one-sided control time systematic error of $10.5\%$ in our result.

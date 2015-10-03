@@ -1,0 +1,36 @@
+
+In this section, we calculate the total luminosity of each cluster and
+use the luminosity to infer a stellar mass. Only a small subset of
+galaxies in each field have known redshifts, making it impossible to
+cleanly separate cluster galaxies from field galaxies.  Therefore, we
+use a ``background subtraction'' method to estimate cluster
+luminosities statistically: we sum the luminosity of all detected
+galaxies in the field and subtract the average ``background
+luminosity'' in a non-cluster field.  This approach follows that
+of \citet{sharon07a}.  For the blank field, we use the
+GOODS\footnote{Based on observations made with the NASA/ESA 
+\emph{Hubble Space Telescope}. The observations are associated with programs
+GO-9425, GO-9583 and GO-10189} \citep{giavalisco04a} fields as they
+have similarly deep or deeper observations in both ACS $i_{775}$ and
+$z_{850}$.
+
+In \S\ref{sec:lum_background} we describe the estimation of image
+backgrounds, which must be subtracted to avoid biasing photometry
+measurements. \S\ref{sec:lum_photometry} describes the galaxy
+detection and photometry method.  Simply summing the photometry from
+the detected galaxies would include most of the total cluster
+light. However, for an unbiased estimate of the total light, several
+small corrections are necessary: We account for light in the outskirts
+of each galaxy (\S\ref{sec:lum_correction}), and light from faint
+galaxies below the detection threshold
+(\S\ref{sec:lum_faintgals}). These corrections are on the order of
+20\% and 5\% respectively. In \S\ref{sec:lum_kcorr} we convert the
+observed $z_{850}$ flux to a rest-frame $B$-band
+flux. \S\ref{sec:lum_centers} describes the method for determining the
+center of a cluster. In \S\ref{sec:lum_profiles} we sum the light and
+subtract light from non-cluster galaxies, creating a profile of
+cluster light as a function of radius. In \S\ref{sec:lum_subsets} we
+repeat this calculation limiting ourselves to red-sequence and
+red-sequence early-type subsets of galaxies. Finally,
+in \S\ref{sec:lum_mass} we estimate cluster stellar masses based on
+the cluster luminosities and stellar mass-to-light ratios.

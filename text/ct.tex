@@ -1,0 +1,40 @@
+
+The effective visibility time $T$ at a position $(x,y)$ on the 
+sky is given by
+\begin{equation}
+T(x,y) = \int_{t=-\infty}^{t=\infty} \eta^\ast (x,y,t) \epsilon (x,y,t) dt.
+\end{equation}
+The integrand here is simply the probability for the survey and our
+selection method to detect (and keep) a SN~Ia at the cluster redshift
+that explodes at time $t$, and position $(x,y)$. This probability is
+split into the probability $\eta^\ast$ of detecting the supernova and
+the probability $\epsilon$ that the supernova passes all ``light
+curve'' cuts. As each SN has multiple chances for detection, the total
+probability of detection $\eta^\ast$ is a combination of the
+probabilities of detection in each observation. For example, if we
+have two search visits at position $(x,y)$, $\eta^\ast(t)$ is given by
+\begin{equation}
+\eta^\ast (t) = \eta_1 (t)+ ( 1-\eta_1(t) ) \eta_2 (t),
+\end{equation}
+where $\eta_i (t)$ is the probability of detecting a SN~Ia 
+exploding at time $t$ in visit $i$. In other words, the total 
+probability of finding the SN~Ia exploding at time $t$ is the probability 
+of finding it in visit 1 plus the probability that it was \emph{not} found in
+visit 1 times the probability of finding it in visit 2. This can be 
+generalized to many search visits: The contribution of each additional visit 
+to the total probability is the probability of not finding the SN in any 
+previous visit times the probability of finding the SN in that visit.
+
+In practice, we calculate $T(x,y)$ in two steps: First, we determine
+the probability $\eta$ of detecting a new point source in a single
+image as a function of the point source magnitude. This is discussed
+in \S\ref{sec:ct_eff}. Second, for each $(x,y)$ position in the observed area
+we simulate a variety of SN~Ia light curves at the cluster redshift
+occurring at various times during the survey. By considering the dates
+of the observations made during the survey at that specific position,
+we calculate the brightness and significance each simulated SN~Ia would
+have in each $z_{850}$ and $i_{775}$ image. We then use our
+calculation of $\eta$ as a function of magnitude to convert the
+observed brightness into a probability of detecting the simulated SN
+in each observation. The light curve simulation is discussed in
+\S\ref{sec:ct_mc}. 

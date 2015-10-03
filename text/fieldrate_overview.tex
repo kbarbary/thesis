@@ -1,0 +1,31 @@
+
+We calculate the SN~Ia rate in redshift bins using what has
+become a standard method in rate calculations: The number of SNe~Ia
+per unit time per comoving volume is estimated in the redshift bin
+$z_1 < z < z_2$ by
+\begin{equation} \label{eq:fieldrate}
+\mathcal{R} (z_1 < z < z_2) = \frac{N_{\rm SN~Ia} (z_1 < z < z_2)}
+        {\int_{z_1}^{z_2} T(z) \frac{1}{1+z}
+          \frac{\Theta}{4\pi}\frac{dV}{dz}(z) dz}
+\end{equation}
+where $N_{\rm SN~Ia} (z_1 < z < z_2)$ is the number of SNe~Ia
+discovered between redshifts $z_1$ and $z_2$, and the denominator is
+the total effective time-volume for which the survey is sensitive to
+SNe Ia in the redshift range $z_1<z<z_2$. $T(z)$ is the
+\emph{effective visibility time} (also known as the ``control time'')
+and is calculated by integrating the probability of detecting a SN~Ia
+as a function of time over the active time of the survey. $T(z)$
+depends on the dates and depths of observations, as well as the
+specific requirements for selecting SNe. The factor of $1/(1+z)$
+converts from observer-frame time to rest-frame time at redshift
+$z$. The last two terms in the denominator represent the volume
+comoving element between $z$ and $z + dz$ observed in the survey.
+$\frac{dV}{dz}(z)$ is the comoving volume of a spherical shell of
+width $dz$.  $\Theta$ is the solid angle observed in the survey, in
+units of steradians. ($\Theta / 4\pi$ is the fraction of the spherical
+shell we have observed.)  Finally, the average redshift of the bin,
+weighted by the volume effectively observed, is given by
+\begin{equation}
+\bar{z} = \frac{\int_{z_1}^{z_2} z T(z) \frac{1}{1+z} \frac{dV}{dz}(z) dz}
+        {\int_{z_1}^{z_2} T(z) \frac{1}{1+z} \frac{dV}{dz}(z) dz}.
+\end{equation}
